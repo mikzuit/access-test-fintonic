@@ -12,6 +12,13 @@ Application runs on NODE_ENV = development environment
 - set at development branch with "git checkout develop"
 - install packages with "npm i"
 
+## Authentication
+- GET method work without authentication
+- POST & DELETE needs a header "token" with value "fintonic"
+
 ## testing
 - install dev packages with "npm i --save-dev mocha && npm i --save-dev chai"
 - on "testing" branch execute "npm test"
+
+### Author
+Miguel Ruiz aka Mik Zuit
