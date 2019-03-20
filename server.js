@@ -1,5 +1,6 @@
 /**
  * @file server file
+ * @author Miguel Ruiz
  */
 
 // Define core modules
