@@ -51,3 +51,5 @@ require("./app/routes/products.routes.js")(app);
 app.listen(3333, () => {
     console.log("server is being listen on 3333")
 });
+
+module.exports = app.listen(3333);

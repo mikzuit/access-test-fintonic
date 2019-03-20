@@ -10,8 +10,8 @@ const Product = require("../app/models/products.model.js");
 
 const chai = require("chai");
 const chaiHttp = require("chai-http");
-const server = require("../server");
 const should = chai.should();
+const app = require("../server.js");
 
 chai.use(chaiHttp);
 
@@ -25,7 +25,7 @@ describe("Products", () => {
 
     describe("/GET Products", () => {
         it('it should GET all products', (done) => {
-            chai.request(server)
+            chai.request(app)
                 .get('/products')
                 .end((err, res) => {
                     res.should.have.status(200);
@@ -42,25 +42,25 @@ describe("Products", () => {
                 name: "Best Product eve",
                 decription: "best product ever description"
             }
-        })
-        chai.request(server)
+        chai.request(app)
             .post('/products')
             .send(product)
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('object');
                 res.body.should.have.property('message').eql('Product successfully added!');
-                res.body.book.should.have.property('name');
-                res.body.book.should.have.property('description');
+                res.body.product.should.have.property('name');
+                res.body.product.should.have.property('description');
                 done();
             });
+        });
     });
     
-    describe("/Delect Product", () => {
+    describe("/DELETE Product", () => {
         it('it should DELETE a book given the id', (done) => {
-            let product = new Product({name: "The Chronicles of Narnia", description: ""})
+            let product = new Product({name: "product name", description: "product description"});
             product.save((err, prod) => {
-                chai.request(server)
+                chai.request(app)
                     .delete('/product/' + prod.id)
                     .end((err, res) => {
                         res.should.have.status(200);
@@ -69,9 +69,8 @@ describe("Products", () => {
                         res.body.result.should.have.property('ok').eql(1);
                         res.body.result.should.have.property('n').eql(1);
                     done();
-                });;
+                });
             });
         });
     });
 });
-
