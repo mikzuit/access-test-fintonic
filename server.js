@@ -1,5 +1,6 @@
 /**
  * @file server file
+ * @author Miguel Ruiz
  */
 
 // Define core modules
@@ -12,9 +13,16 @@ const   mongoose = require("mongoose");
 // define express app
 const app = express();
 
+// authorization definitions
+const allowTokenHeader = (res, req, next) => {
+    res.header("Access-Control-Allow-Headers", "token");
+    next();
+}
+
 // parse rquest content-type x-www-form-urlencoded and application/json
 app.use(bodyparser.urlencoded({extended: true}));
 app.use(bodyparser.json());
+app.use(allowTokenHeader);
 
 mongoose.Promise = global.Promise;
 
@@ -32,9 +40,12 @@ app.get("/", (req, res) => {
     res.json({"message": "Home Products is in Here"});
 });
 
-app.get("*", (req, res) => {
+// Require Products routes
+require("./app/routes/products.routes.js")(app);
+
+/* app.get("*", (req, res) => {
     res.json({"message": "Not Found"});
-});
+}); */
 
 // listen for request
 app.listen(3333, () => {
