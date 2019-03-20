@@ -1,0 +1,23 @@
+{
+  "name": "fintonic",
+  "version": "1.0.0",
+  "description": "fintonic access test",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha --timeout 10000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikzuit/access-test-fintonic.git"
+  },
+  "keywords": [
+    "fintonic",
+    "access"
+  ],
+  "author": "Miguel Ruiz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikzuit/access-test-fintonic/issues"
+  },
+  "homepage": "https://github.com/mikzuit/access-test-fintonic#readme"
+}
