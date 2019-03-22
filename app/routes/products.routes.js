@@ -8,7 +8,7 @@ module.exports = (app) => {
     // TODO : jwt implementation
     // Check for authentication
     const auth = (req, res, next) => {
-        if(req.headers.token === "fintonic") {
+        if(req.headers.token === "token_string") {
             return next();
         } else {
             res.status(403);
