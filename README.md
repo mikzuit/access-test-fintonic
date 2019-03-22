@@ -8,7 +8,7 @@ Application runs on NODE_ENV = development environment
 - Node.js version 10.15.3
 
 ## installation
-- clone repo with "git clone https://github.com/mikzuit/node-rest-api-with-auth-request.git fintonic-test"
+- clone repo with "git clone https://github.com/mikzuit/node-rest-api-with-auth-request.git rest_api"
 - set at development branch with "git checkout develop"
 - install packages with "npm i"
 
